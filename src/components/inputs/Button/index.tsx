@@ -13,7 +13,7 @@ interface ButtonProps extends TouchableOpacityProps {
 
 export function Button({ isLoading, title, ...rest }: ButtonProps) {
   return (
-    <TouchableOpacity disabled={isLoading} style={styles.button} {...rest}>
+    <TouchableOpacity disabled={isLoading} style={[styles.button]} {...rest}>
       {isLoading ? (
         <ActivityIndicator color="white" />
       ) : (

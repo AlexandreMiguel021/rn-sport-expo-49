@@ -1,8 +1,9 @@
-import { IUser } from "@/models/user";
 import auth from "@react-native-firebase/auth";
 
+import { RegisterFormData } from "./schema";
+
 export const registerService = {
-  createUser: async ({ email, password }: IUser) => {
+  createUser: async ({ email, password }: RegisterFormData) => {
     try {
       await auth().createUserWithEmailAndPassword(email, password);
     } catch (error) {
