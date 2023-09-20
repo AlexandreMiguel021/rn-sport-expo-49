@@ -21,8 +21,6 @@ export default function RegisterModule() {
     resolver: zodResolver(registerUserSchema),
   });
 
-  console.log("render form");
-
   const userCreatedSuccessfullyFeedback = useCallback(() => {
     setSuccessMessage("Conta criada com sucesso!");
     setErrorMessage("");
