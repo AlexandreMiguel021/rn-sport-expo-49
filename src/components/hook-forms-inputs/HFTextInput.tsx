@@ -3,9 +3,9 @@ import {
   Controller,
   FieldValues,
   UseControllerProps,
-} from "react-hook-form";
-import { TextInput } from "../inputs/TextInput";
-import { TextInputProps } from "react-native";
+} from 'react-hook-form'
+import { TextInput } from '../inputs/TextInput'
+import { TextInputProps } from 'react-native'
 
 export type HFTextInputProps<T extends FieldValues> = UseControllerProps<T> &
   TextInputProps & {
@@ -33,5 +33,5 @@ export function HFTextInput<T extends FieldValues>({
         />
       )}
     />
-  );
+  )
 }

@@ -1,5 +1,5 @@
-import { Redirect } from "expo-router";
-import { StyleSheet, Text, View } from "react-native";
+import { Redirect } from 'expo-router'
+import { StyleSheet, Text, View } from 'react-native'
 
 export default function Home() {
   return (
@@ -9,27 +9,27 @@ export default function Home() {
         <Text style={styles.subtitle}>This is the Home page of your app.</Text>
       </View>
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
+    alignItems: 'center',
     padding: 24,
   },
   main: {
     flex: 1,
-    justifyContent: "center",
+    justifyContent: 'center',
     maxWidth: 960,
-    marginHorizontal: "auto",
+    marginHorizontal: 'auto',
   },
   title: {
     fontSize: 64,
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
   subtitle: {
     fontSize: 36,
-    color: "#38434D",
+    color: '#38434D',
   },
-});
+})

@@ -1,6 +1,6 @@
-import { Text, TextInput as TextInputNative, View } from "react-native";
-import type { TextInputProps as TextInputPropsNative } from "react-native";
-import { styles } from "./styles";
+import { Text, TextInput as TextInputNative, View } from 'react-native'
+import type { TextInputProps as TextInputPropsNative } from 'react-native'
+import { styles } from './styles'
 
 type TextInputProps = TextInputPropsNative & {
   errorMessage?: string;
@@ -15,5 +15,5 @@ export function TextInput({ errorMessage, ...rest }: TextInputProps) {
       />
       {errorMessage && <Text style={styles.error_text}>{errorMessage}</Text>}
     </View>
-  );
+  )
 }

@@ -3,8 +3,8 @@ import {
   Text,
   TouchableOpacity,
   TouchableOpacityProps,
-} from "react-native";
-import { styles } from "./styles";
+} from 'react-native'
+import { styles } from './styles'
 
 interface ButtonProps extends TouchableOpacityProps {
   isLoading?: boolean;
@@ -20,5 +20,5 @@ export function Button({ isLoading, title, ...rest }: ButtonProps) {
         <Text style={styles.button_text}>{title}</Text>
       )}
     </TouchableOpacity>
-  );
+  )
 }

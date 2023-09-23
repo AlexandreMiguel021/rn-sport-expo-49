@@ -1,5 +1,5 @@
-import { PropsWithChildren } from "react";
-import { View } from "react-native";
+import { PropsWithChildren } from 'react'
+import { View } from 'react-native'
 
 export function Container({ children }: PropsWithChildren) {
   return (
@@ -11,5 +11,5 @@ export function Container({ children }: PropsWithChildren) {
     >
       {children}
     </View>
-  );
+  )
 }

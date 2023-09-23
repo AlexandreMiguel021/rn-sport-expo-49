@@ -1,17 +1,17 @@
-import { Slot, router, useSegments } from "expo-router";
-import { useEffect } from "react";
+import { Slot, router, useSegments } from 'expo-router'
+import { useEffect } from 'react'
 
-const isLogged = false;
+const isLogged = false
 
 export default function RootLayout() {
-  const segments = useSegments();
+  const segments = useSegments()
 
   useEffect(() => {
-    const inTabsGroup = segments["0"] === "(auth)";
+    const inTabsGroup = segments['0'] === '(auth)'
 
-    if (isLogged && !inTabsGroup) router.replace("/home");
-    else if (!isLogged) router.replace("/login");
-  }, []);
+    if (isLogged && !inTabsGroup) router.replace('/home')
+    else if (!isLogged) router.replace('/login')
+  }, [])
 
-  return <Slot />;
+  return <Slot />
 }

@@ -47,6 +47,11 @@
   "devDependencies": {
     "@babel/core": "^7.20.0",
     "@types/react": "~18.2.14",
+    "@typescript-eslint/eslint-plugin": "^6.7.2",
+    "@typescript-eslint/parser": "^6.7.2",
+    "eslint": "^8.50.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "jest": "^29.2.1",
     "jest-expo": "~49.0.0",
     "react-test-renderer": "18.2.0",
@@ -58,5 +63,8 @@
   "resolutions": {
     "react-refresh": "~0.14.0"
   },
-  "private": true
+  "private": true,
+  "repository": "https://github.com/AlexandreMiguel021/rn-sport-expo-49.git",
+  "author": "Alexandre Miguel <alexandremiguel.dev@gmail.com>",
+  "license": "MIT"
 }
