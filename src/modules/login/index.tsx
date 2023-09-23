@@ -1,5 +1,5 @@
-import { Button } from '@/components/inputs/Button'
-import { Container } from '@/components/layouts/Container'
+import { Button } from '@/components/Button/Button.component'
+import { Container } from '@/components/Container/Container.component'
 import { Link } from 'expo-router'
 import { useState } from 'react'
 import { Pressable, Text, TextInput, View } from 'react-native'

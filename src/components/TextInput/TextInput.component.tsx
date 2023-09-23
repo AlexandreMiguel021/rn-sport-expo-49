@@ -1,10 +1,10 @@
 import { Text, TextInput as TextInputNative, View } from 'react-native'
 import type { TextInputProps as TextInputPropsNative } from 'react-native'
-import { styles } from './styles'
+import { styles } from './TextInput.styles'
 
 type TextInputProps = TextInputPropsNative & {
-  errorMessage?: string;
-};
+  errorMessage?: string
+}
 
 export function TextInput({ errorMessage, ...rest }: TextInputProps) {
   return (

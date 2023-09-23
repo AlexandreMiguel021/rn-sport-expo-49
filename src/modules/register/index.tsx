@@ -4,8 +4,8 @@ import { useCallback, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { Text, View } from 'react-native'
 
-import { Button } from '@/components/inputs/Button'
-import { Container } from '@/components/layouts/Container'
+import { Button } from '@/components/Button/Button.component'
+import { Container } from '@/components/Container/Container.component'
 import { HFTextInput } from '@/components/hook-forms-inputs/HFTextInput'
 
 import { RegisterFormData, registerUserSchema } from './schema'
