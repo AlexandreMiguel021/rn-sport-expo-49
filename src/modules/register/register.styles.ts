@@ -1,6 +1,7 @@
+import { theme } from '@/theme'
 import { StyleSheet } from 'react-native'
 
-export const styles = StyleSheet.create({
+export const registerStyles = StyleSheet.create({
   main: {
     flex: 1,
     gap: 16,
@@ -20,7 +21,7 @@ export const styles = StyleSheet.create({
     borderRadius: 6
   },
   button: {
-    backgroundColor: '#DE6449',
+    backgroundColor: theme.colors.primary,
     padding: 12,
     borderRadius: 6
   },
@@ -29,14 +30,5 @@ export const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '600',
     textAlign: 'center'
-  },
-  pressable: {
-    maxWidth: 170,
-    alignSelf: 'flex-end'
-  },
-  pressable_text: {
-    fontSize: 14,
-    fontWeight: '500',
-    color: '#d13a18'
   }
 })

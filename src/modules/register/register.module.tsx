@@ -1,41 +1,41 @@
+import Toast from 'react-native-toast-message'
+
 import { zodResolver } from '@hookform/resolvers/zod'
 import { router } from 'expo-router'
-import { useCallback, useState } from 'react'
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { Text, View } from 'react-native'
+import { Keyboard, View } from 'react-native'
 
 import { Button } from '@/components/Button/Button.component'
 import { Container } from '@/components/Container/Container.component'
 import { HFTextInput } from '@/components/hook-forms-inputs/HFTextInput'
+import { Text } from '@/components/Text'
+import { toast } from '@/components/Toast'
+import { AuthError } from '@/utils/auth-error-handler'
 
-import { RegisterFormData, registerUserSchema } from './schema'
-import { registerService } from './service'
-import { styles } from './styles'
+import { RegisterFormData, registerUserSchema } from './register.schema'
+import { registerService } from './register.service'
+import { registerStyles } from './register.styles'
+import { useLoadingStore } from '@/components/Loading/Loading.component'
 
-export default function RegisterModule() {
-  const [successMessage, setSuccessMessage] = useState('')
-  const [errorMessage, setErrorMessage] = useState('')
-  const [isLoading, setIsLoading] = useState(false)
+export function RegisterModule() {
+  const setIsLoading = useLoadingStore((action) => action.setLoading)
+  const isLoading = useLoadingStore((action) => action.isLoading)
 
   const { control, handleSubmit } = useForm<RegisterFormData>({
-    resolver: zodResolver(registerUserSchema),
+    resolver: zodResolver(registerUserSchema)
   })
-
-  const userCreatedSuccessfullyFeedback = useCallback(() => {
-    setSuccessMessage('Conta criada com sucesso!')
-    setErrorMessage('')
-    setTimeout(() => {
-      router.back()
-    }, 500)
-  }, [])
 
   async function handleCreateUserButtonSubmit(values: RegisterFormData) {
     try {
+      Keyboard.dismiss()
       setIsLoading(true)
       await registerService.createUser(values)
-      userCreatedSuccessfullyFeedback()
-    } catch (err) {
-      setErrorMessage(err as string)
+      Toast.show({ type: 'success', text1: 'Conta criada com sucesso!' })
+    } catch (error) {
+      if (error instanceof AuthError) {
+        toast.error({ title: 'Erro ao Cadastrar', text: error.message })
+      }
     } finally {
       setIsLoading(false)
     }
@@ -43,8 +43,8 @@ export default function RegisterModule() {
 
   return (
     <Container>
-      <View style={styles.main}>
-        <Text style={styles.description}>
+      <View style={registerStyles.main}>
+        <Text style={registerStyles.description}>
           Crie sua conta com email e senha para começar a utilzar o aplicativo
         </Text>
         <HFTextInput
@@ -62,11 +62,6 @@ export default function RegisterModule() {
           secureTextEntry
           keyboardType="number-pad"
         />
-
-        {successMessage && (
-          <Text style={styles.success_text}>{successMessage}</Text>
-        )}
-        {errorMessage && <Text style={styles.error_text}>{errorMessage}</Text>}
         <Button
           isLoading={isLoading}
           title="Criar conta"

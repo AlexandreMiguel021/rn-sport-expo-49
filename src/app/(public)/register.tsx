@@ -1,3 +1,3 @@
-import RegisterModule from '@/modules/register'
+import { RegisterModule } from '@/modules/register'
 
 export default RegisterModule
