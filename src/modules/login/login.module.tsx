@@ -1,11 +1,12 @@
 import { Link } from 'expo-router'
-import { Dimensions, Keyboard, Pressable, View } from 'react-native'
 import { useForm } from 'react-hook-form'
+import { Keyboard, Pressable, View } from 'react-native'
 
+import { Button } from '@/components/Button/Button.component'
+import { Container } from '@/components/Container/Container.component'
+import { useLoadingStore } from '@/components/Loading/Loading.component'
 import { Text } from '@/components/Text'
 import { toast } from '@/components/Toast'
-import { Container } from '@/components/Container/Container.component'
-import { Button } from '@/components/Button/Button.component'
 import { HFTextInput } from '@/components/hook-forms-inputs'
 import { theme } from '@/theme'
 import { AuthError } from '@/utils/auth-error-handler'
@@ -14,7 +15,6 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { LoginFormData, LoginUserSchema } from './login.schema'
 import { loginService } from './login.service'
 import { loginStyles } from './login.styles'
-import { useLoadingStore } from '@/components/Loading/Loading.component'
 
 export function LoginModule() {
   const setIsLoading = useLoadingStore((action) => action.setLoading)

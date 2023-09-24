@@ -1,9 +1,10 @@
-import { Loading } from '@/components/Loading/Loading.component'
-import auth from '@react-native-firebase/auth'
-import { useFonts } from 'expo-font'
 import { Slot, router, useSegments } from 'expo-router'
 import { Fragment, useEffect, useState } from 'react'
 import { StatusBar } from 'react-native'
+import { useFonts } from 'expo-font'
+import auth from '@react-native-firebase/auth'
+
+import { Loading } from '@/components/Loading/Loading.component'
 
 export default function RootLayout() {
   useFonts({

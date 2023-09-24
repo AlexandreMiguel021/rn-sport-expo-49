@@ -1,5 +1,6 @@
 import { TextInput as TextInputNative, View } from 'react-native'
 import type { TextInputProps as TextInputPropsNative } from 'react-native'
+
 import { styles } from './TextInput.styles'
 import { Text } from '../Text/Text.component'
 

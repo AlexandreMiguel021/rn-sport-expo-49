@@ -1,10 +1,11 @@
+import { useCallback } from 'react'
+import { StyleSheet, View } from 'react-native'
+import auth from '@react-native-firebase/auth'
+
 import { Button } from '@/components/Button'
 import { Text } from '@/components/Text'
 import { toast } from '@/components/Toast'
 import { AuthError } from '@/utils/auth-error-handler'
-import auth from '@react-native-firebase/auth'
-import { useCallback } from 'react'
-import { StyleSheet, View } from 'react-native'
 
 export default function Home() {
   const handleSignOutPress = useCallback(() => {
