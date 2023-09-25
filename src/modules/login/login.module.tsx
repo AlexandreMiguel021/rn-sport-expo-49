@@ -30,8 +30,6 @@ export function LoginModule() {
     defaultValues: rememberedUserCredentials!
   })
 
-  console.log(errors)
-
   async function handleUserLoginSubmit(values: LoginFormData) {
     try {
       setIsLoading(true)
