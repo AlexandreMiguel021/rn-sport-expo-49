@@ -7,7 +7,8 @@ export const LoginUserSchema = z.object({
     .toLowerCase(),
   password: z
     .string({ required_error: 'Senha é obrigatório' })
-    .min(6, 'Senha precisa ter ao menos 6 digitos')
+    .min(6, 'Senha precisa ter ao menos 6 digitos'),
+  rememberCrendentials: z.boolean().optional()
 })
 
 export type LoginFormData = z.infer<typeof LoginUserSchema>

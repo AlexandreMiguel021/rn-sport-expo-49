@@ -1,12 +1,11 @@
 import AnimatedLottieView from 'lottie-react-native'
-import { Dimensions, View } from 'react-native'
 
-const screenWidth = Dimensions.get('screen').width
-const screenHeight = Dimensions.get('screen').height
+import { create } from 'zustand'
+import { View } from 'react-native'
 
 import LoadingLottie from '@/assets/anim/loading.json'
 
-import { create } from 'zustand'
+import { LoadingStyles } from './Loading.styles'
 
 interface LoadingStore {
   isLoading: boolean
@@ -26,25 +25,13 @@ export function Loading() {
   }
 
   return (
-    <View
-      style={{
-        backgroundColor: 'white',
-        height: screenHeight,
-        flex: 1,
-        position: 'absolute',
-        right: 0,
-        width: screenWidth,
-        alignItems: 'center',
-        justifyContent: 'center',
-        zIndex: 5
-      }}
-    >
+    <View style={LoadingStyles.loading_container}>
       <AnimatedLottieView
         autoPlay
         useNativeLooping
         loop
         resizeMode="contain"
-        style={{ width: 300, height: 300 }}
+        style={LoadingStyles.loading_lottie}
         source={LoadingLottie}
       />
     </View>

@@ -12,10 +12,13 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "package": "br.com.rnsport",
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "br.com.rnsport"
     },
     "android": {
       "package": "br.com.rnsport",

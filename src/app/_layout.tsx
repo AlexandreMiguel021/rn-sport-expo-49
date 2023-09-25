@@ -1,12 +1,19 @@
-import { Slot, router, useSegments } from 'expo-router'
-import { Fragment, useEffect, useState } from 'react'
-import { StatusBar } from 'react-native'
-import { useFonts } from 'expo-font'
 import auth from '@react-native-firebase/auth'
+import { useFonts } from 'expo-font'
+import { Slot, router } from 'expo-router'
+import { Fragment, useCallback, useEffect } from 'react'
+import { StatusBar } from 'react-native'
 
-import { Loading } from '@/components/Loading/Loading.component'
+import { Loading, useLoadingStore } from '@/components/Loading/Loading.component'
+import { Toast } from '@/components/Toast'
+import { IUserFb } from '@/models/user'
+import { theme } from '@/theme'
+
+useLoadingStore.setState({ isLoading: true })
 
 export default function RootLayout() {
+  const setIsLoading = useLoadingStore((action) => action.setLoading)
+
   useFonts({
     Poppins: require('@/assets/fonts/Poppins-Regular.ttf'),
     Poppins100: require('@/assets/fonts/Poppins-Thin.ttf'),
@@ -17,29 +24,25 @@ export default function RootLayout() {
     Poppins700: require('@/assets/fonts/Poppins-Bold.ttf')
   })
 
-  const segments = useSegments()
-  const currentGroup = segments['0']
-
-  const [initializing, setInitializing] = useState(true)
+  const redirectBasedOnUser = useCallback((user: IUserFb | null) => {
+    if (user) {
+      router.replace('/home')
+    } else {
+      router.replace('/login')
+    }
+  }, [])
 
   useEffect(() => {
-    const subscriber = auth().onAuthStateChanged((user) => {
-      if (user && !inTabsGroup) router.replace('/home')
-      else if (!user) router.replace('/login')
+    const subscriber = auth().onAuthStateChanged(redirectBasedOnUser)
 
-      if (initializing) {
-        setInitializing(false)
-      }
-    })
-
-    const inTabsGroup = currentGroup === '(auth)'
+    setIsLoading(false)
 
     return subscriber
-  }, [currentGroup])
+  }, [redirectBasedOnUser, setIsLoading])
 
   return (
     <Fragment>
-      <StatusBar barStyle="light-content" />
+      <Toast />
       <Loading />
       <Slot />
     </Fragment>

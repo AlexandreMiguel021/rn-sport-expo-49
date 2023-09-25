@@ -32,8 +32,7 @@ export const loginStyles = StyleSheet.create({
     textAlign: 'center'
   },
   pressable: {
-    maxWidth: 170,
-    alignSelf: 'flex-end'
+    alignSelf: 'flex-end',
   },
   pressable_text: {
     fontSize: 14,

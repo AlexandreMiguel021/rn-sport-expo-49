@@ -13,6 +13,7 @@ import { AuthError } from '@/utils/auth-error-handler'
 import { RegisterFormData, registerUserSchema } from './register.schema'
 import { registerService } from './register.service'
 import { registerStyles } from './register.styles'
+import { theme } from '@/theme'
 
 export function RegisterModule() {
   const setIsLoading = useLoadingStore((action) => action.setLoading)
@@ -39,6 +40,9 @@ export function RegisterModule() {
   return (
     <Container>
       <View style={registerStyles.main}>
+        <Text style={{ fontSize: 42, color: theme.colors.primary }} weigth="bold">
+          RN Sport
+        </Text>
         <Text style={registerStyles.description}>
           Crie sua conta com email e senha para começar a utilzar o aplicativo
         </Text>
