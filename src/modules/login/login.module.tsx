@@ -21,11 +21,7 @@ export function LoginModule() {
   const setIsLoading = useLoadingStore((action) => action.setLoading)
   const { setRememberedUserCredentials, rememberedUserCredentials } = useLoginStore()
 
-  const {
-    control,
-    handleSubmit,
-    formState: { errors }
-  } = useForm<LoginFormData>({
+  const { control, handleSubmit } = useForm<LoginFormData>({
     resolver: zodResolver(LoginUserSchema),
     defaultValues: rememberedUserCredentials!
   })
