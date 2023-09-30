@@ -29,7 +29,6 @@ export function LoginModule() {
   async function handleUserLoginSubmit(values: LoginFormData) {
     try {
       setIsLoading(true)
-      console.log(values)
       Keyboard.dismiss()
       await loginService.authenticateUser(values)
       handleRememberCrendetialsCheck(values)

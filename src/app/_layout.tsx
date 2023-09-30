@@ -2,12 +2,10 @@ import auth from '@react-native-firebase/auth'
 import { useFonts } from 'expo-font'
 import { Slot, router } from 'expo-router'
 import { Fragment, useCallback, useEffect } from 'react'
-import { StatusBar } from 'react-native'
 
 import { Loading, useLoadingStore } from '@/components/Loading/Loading.component'
 import { Toast } from '@/components/Toast'
 import { IUserFb } from '@/models/user'
-import { theme } from '@/theme'
 
 useLoadingStore.setState({ isLoading: true })
 
