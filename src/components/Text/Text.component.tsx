@@ -7,7 +7,7 @@ type Textrops = RNTextProps & {
   weigth?: keyof typeof fontWeight
 }
 
-const fontWeight = {
+export const fontWeight = {
   normal: 'Poppins',
   thin: 'Poppins100',
   extraLight: 'Poppins200',
