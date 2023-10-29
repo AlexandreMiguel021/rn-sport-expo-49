@@ -7,7 +7,8 @@ node_modules/
 .expo/
 dist/
 web-build/
-
+ios
+GoogleService-Info.plist
 # Native
 *.orig.*
 *.jks

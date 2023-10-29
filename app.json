@@ -18,7 +18,8 @@
     "ios": {
       "package": "br.com.rnsport",
       "supportsTablet": true,
-      "bundleIdentifier": "br.com.rnsport"
+      "bundleIdentifier": "br.com.rnsport",
+      "googleServicesFile": "./GoogleService-Info.plist"
     },
     "android": {
       "package": "br.com.rnsport",
