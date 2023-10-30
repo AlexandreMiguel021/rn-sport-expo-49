@@ -2,7 +2,7 @@ import auth from '@react-native-firebase/auth'
 import { useFonts } from 'expo-font'
 import { Slot, router } from 'expo-router'
 import { Fragment, useCallback, useEffect } from 'react'
-import { StatusBar } from 'react-native'
+import { SafeAreaView, StatusBar } from 'react-native'
 
 import { Loading, useLoadingStore } from '@/components/Loading/Loading.component'
 import { Toast } from '@/components/Toast'
@@ -42,9 +42,12 @@ export default function RootLayout() {
 
   return (
     <Fragment>
+      <StatusBar barStyle={"light-content"} />
+      <SafeAreaView style={{ backgroundColor: theme.colors.primary }} />
       <Toast />
       <Loading />
       <Slot />
+      <SafeAreaView style={{ backgroundColor: "#fff" }} />
     </Fragment>
   )
 }

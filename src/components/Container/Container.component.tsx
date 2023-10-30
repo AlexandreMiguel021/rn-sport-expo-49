@@ -7,6 +7,7 @@ export function Container({ children }: PropsWithChildren) {
       style={{
         padding: 16,
         flex: 1,
+        backgroundColor: "#fff"
       }}
     >
       {children}
